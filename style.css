@@ -1,0 +1,470 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #2b0a3d, #5a0f2e);
+  color: white;
+  height: 100vh;
+  overflow: hidden; /* 🔒 NO SCROLL */
+}
+
+/* ===== LOGIN ESTILO AÑO NUEVO + ROMÁNTICO ===== */
+
+#login {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    max-width: 450px;
+    margin: 40px auto;
+    margin-top: auto;
+    max-height: 100vh;
+    animation: fadeIn 1.5s ease;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+}
+
+/* TÍTULO */
+#login h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.4rem;
+    color: #ffe4ec;
+    margin-bottom: 15px;
+    text-shadow: 0 0 12px rgba(255, 182, 193, 0.6);
+}
+
+/* TEXTO */
+#login .subtexto {
+    font-size: 0.95rem;
+    color: #f7f7f7;
+    opacity: 0.9;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+/* INPUT FECHA */
+#login input[type="date"] {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 18px;
+    border: none;
+    outline: none;
+
+    font-size: 0.95rem;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.85);
+    color: #333;
+
+    margin-bottom: 20px;
+}
+
+/* BOTÓN */
+#login button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 22px;
+    border: none;
+
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #5a0f2e;
+
+    box-shadow: 0 8px 20px rgba(255, 105, 135, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* EFECTO HOVER / TOQUE */
+#login button:hover,
+#login button:active {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(255, 105, 135, 0.5);
+}
+
+/* ERROR */
+#error {
+    margin-top: 15px;
+    color: #ffd1dc;
+    font-size: 0.85rem;
+}
+
+/* DECORACIONES */
+.decoracion {
+    display: block;
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.decoracion.superior {
+    margin-bottom: 10px;
+}
+
+.decoracion.inferior {
+    margin-top: 15px;
+}
+
+/* ANIMACIÓN SUAVE */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+
+/* CONTENEDOR */
+#container {
+    height: 100vh;
+    scroll-behavior: smooth;
+}
+
+/* PANEL FULL SCREEN */
+.panel {
+    height: 100vh;
+    width: 100%;
+    padding: 40px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Estilo general de fotos */
+.foto-decorativa {
+    position: absolute;
+    width: 180px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 18px;
+    filter: blur(6px);
+    opacity: 0.45;
+    z-index: 1;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* Posiciones individuales */
+.f1 {
+    top: 15%;
+    left: 5%;
+    transform: rotate(-8deg);
+}
+
+.f2 {
+    bottom: 20%;
+    right: 8%;
+    transform: rotate(10deg);
+}
+
+.f3 {
+    top: 55%;
+    left: 70%;
+    transform: rotate(-4deg);
+}
+
+.f4 {
+    top: 30%;
+    left: 18%;
+    transform: rotate(10deg);
+}
+
+/* El contenido siempre encima */
+.hero-contenido {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* HERO */
+.hero {
+    background: radial-gradient(circle at top, #355c7d, #0b1d26);
+    position: relative;
+}
+
+.hero-contenido {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.anio {
+    display: inline-block;
+    font-size: 1rem;
+    letter-spacing: 4px;
+    color: #ffd700;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.hero h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    color: #ffd700;
+    text-shadow: 0 0 15px rgba(255,215,0,0.6);
+    margin-bottom: 20px;
+}
+
+.linea {
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffd700, transparent);
+    margin: 0 auto 25px;
+}
+
+.mensaje {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #ffdde1;
+    margin-bottom: 40px;
+}
+
+.desliza {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    letter-spacing: 1px;
+}
+
+
+/* SECCIONES */
+.seccion h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    color: #ffdde1;
+    margin-bottom: 15px;
+}
+
+.seccion p {
+    max-width: 700px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* DESTACADA */
+.destacada {
+    background: linear-gradient(135deg, rgba(255,215,0,0.12), rgba(255,182,193,0.12));
+}
+
+/* COLLAGE */
+.collage {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 900px;
+    overflow: visible;
+}
+
+.collage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 18px;
+
+    /* 🌸 Borde romántico */
+    border: 3px solid rgba(255, 200, 220, 0.55);
+
+    /* ✨ Animación */
+    transition: 
+        transform 0.45s ease,
+        box-shadow 0.45s ease,
+        border-color 0.45s ease;
+
+    cursor: pointer;
+}
+
+/* 💖 Hover PC */
+.collage img:hover {
+    transform: scale(1.14);
+    border-color: rgba(255, 150, 190, 0.95);
+    box-shadow: 
+        0 14px 35px rgba(255, 120, 160, 0.35),
+        0 0 12px rgba(255, 180, 210, 0.45);
+    z-index: 2;
+}
+
+/* 📱 Tap móvil */
+.collage img.activa {
+    transform: scale(1.14);
+    border-color: rgba(255, 150, 190, 0.95);
+    box-shadow: 
+        0 14px 35px rgba(255, 120, 160, 0.35),
+        0 0 12px rgba(255, 180, 210, 0.45);
+    z-index: 2;
+}
+
+
+
+.dedicatoria {
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    width: 100%;
+    max-width: 600px;
+}
+
+.dedicatoria p {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #ffdde1;
+}
+
+@media (max-width: 768px) {
+    .foto-decorativa {
+        width: 120px;
+        height: 160px;
+        filter: blur(5px);
+        opacity: 0.35;
+    }
+
+    .f3 {
+        display: none; /* menos ruido visual */
+    }
+}
+
+.foto-video {
+    width: 180px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+
+
+.sorpresa-container {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.footer-dedicatoria {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+#nombreSecreto {
+    font-weight: bold;
+    color: #f5f5f5;
+    cursor: pointer;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+#nombreSecreto:hover {
+    color: #ff7fa1;
+    text-shadow: 0 0 10px rgba(255, 150, 190, 0.7);
+}
+
+/* 🌸 Botón sorpresa */
+.btn-sorpresa {
+    display: block;
+    margin: 30px auto 0;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(135deg, #ffb6c1, #ffd1dc);
+    color: #fff;
+    cursor: pointer;
+
+    box-shadow: 0 10px 25px rgba(255, 150, 190, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-sorpresa:hover {
+    transform: scale(1.06);
+    box-shadow: 0 14px 35px rgba(255, 120, 160, 0.55);
+}
+
+/* 🌑 Modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal-contenido {
+    background: #111;
+    padding: 30px;
+    border-radius: 22px;
+    max-width: 90%;
+    width: 720px;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+}
+
+.modal-texto {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.modal video {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    background: black;
+}
+
+/* Botón cerrar */
+.btn-cerrar {
+    margin-top: 20px;
+    padding: 10px 24px;
+    border-radius: 25px;
+    border: none;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: white;
+    cursor: pointer;
+}
+
+.oculto {
+    display: none;
+}
+
+.nieve {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.nieve::before {
+    content: "❄ ❅ ❆";
+    position: absolute;
+    top: -10%;
+    width: 100%;
+    font-size: 1.4rem;
+    color: rgba(255,255,255,0.8);
+    animation: caer 14s linear infinite;
+}
+
+@keyframes caer {
+    to {
+        transform: translateY(120vh);
+    }
+}
