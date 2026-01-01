@@ -97,15 +97,21 @@ document.addEventListener("DOMContentLoaded", () => {
     video.currentTime = 0;
 
     musica.pause(); // ⛔ pausa música
-    video.play();
   });
 
   cerrar.addEventListener('click', () => {
-    modal.classList.add('oculto');
-    video.pause();
+  modal.classList.add('oculto');
 
-    musica.play(); // 🎶 vuelve música
-  });
+  // ⏹️ Detener video correctamente
+  if (player && player.stopVideo) {
+    player.stopVideo();
+  }
+
+  // 🎶 Reanudar música SIEMPRE
+  musica.currentTime = musica.currentTime; // truco mobile
+  musica.play().catch(() => {});
+});
+
 
   /* =========================
    🎶 MÚSICA + FECHA SECRETA
@@ -143,6 +149,39 @@ boton.addEventListener("click", () => {
       "Esa no es nuestra fecha 💔 Inténtalo de nuevo";
   }
 });
+
+/* =========================
+   🎬 CONTROL VIDEO YOUTUBE
+   ========================= */
+
+let player;
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('videoSorpresa', {
+    events: {
+      onStateChange: onPlayerStateChange
+    }
+  });
+}
+
+function onPlayerStateChange(event) {
+
+  // ▶️ Video reproduciéndose
+  if (event.data === YT.PlayerState.PLAYING) {
+    musica.pause();
+  }
+
+  // ⏸️ Video pausado
+  if (event.data === YT.PlayerState.PAUSED) {
+    musica.play().catch(() => {});
+  }
+
+  // ⏹️ Video terminado
+  if (event.data === YT.PlayerState.ENDED) {
+    musica.play().catch(() => {});
+  }
+}
+
 
 
 });
